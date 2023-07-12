@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %} Payrolls {% endblock %}
+{% block body_block %}
+<div class="container">
+	<br/>
+	<h1  class="float-right"> Create Payroll </h1>
+	<br/>
+	<form method="POST" action="/hr_payrolls/new_payroll/" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div  class="form-group">
+			
+			<a href="javascript:history.back()" class="btn btn-dark"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back </a>
+			<input type="submit" value="Create" class="btn btn-primary">
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				{{ form.name.label_tag }} {{ form.name }}
+			</div>
+			
+			<div class="form-group col-md-6">
+				{{ form.salary.label_tag }} {{ form.salary }}
+			</div>
+		</div>
+
+		<div class="form-row">		
+			<div class="form-group col-md-6">
+				{{ form.ot_rate.label_tag }} {{ form.ot_rate }}
+			</div>
+
+			<div class="form-group col-md-6">
+				{{ form.allowance.label_tag }} {{ form.allowance }}
+			</div>
+		</div>
+
+		<div class="form-row">		
+			<div class="form-group col-md-6">
+				{{ form.leave.label_tag }} {{ form.leave }}
+			</div>
+
+			<div class="form-group col-md-6">
+				{{ form.fine.label_tag }} {{ form.fine }}
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				{{ form.note.label_tag }} {{ form.note }}
+			</div>
+			<div class="form-group col-md-4">
+				{{ form.status.label_tag }} {{ form.status }}
+			</div>
+			<div class="form-group col-md-4">
+				{{ form.create_date.label_tag }} {{ form.create_date }}
+			</div>
+		</div>
+
+		
+
+		<div>
+			{{ form.attachment.label_tag }} {{ form.attachment }}
+		</div>
+		<div>
+			{{ form.employee.label_tag }}
+			{{ form.employee }}
+		</div>
+		<div>
+			{{ form.tags.label_tag }}
+			{{ form.tags }}
+		</div>
+
+		
+	</form>
+</div>
+{% endblock body_block %}

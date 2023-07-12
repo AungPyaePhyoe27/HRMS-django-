@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div class="container">  
+    <br/>
+    <h1 class="float-right"> Payroll Details </h1> 
+    <br/>
+    <form class="mt-5" method="POST" action="/hr_payrolls/new_payroll/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <a class="btn btn-dark" href="/hr_payrolls/show_payroll"><i class="fa fa-arrow-left" 
+                aria-hidden="true"></i> Back</a>
+            <a class="btn btn-primary" href="/hr_payrolls/update/{{payroll.id}}/"> Update </a>
+            <a class="btn btn-danger" href="/hr_payrolls/delete/{{payroll.id}}/"
+                onclick="return confirm('Are you sure?');"> Delete </a>
+        </div>
+        <br/>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="row">
+                    <label class="col-md-3 font-weight-bold"> Name </label>
+                    <div class="col-md-9">
+                        {{payroll.name}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="row">
+                    <label class="col-md-3 font-weight-bold"> Salary </label>
+                    <div class="col-md-9">
+                        {{payroll.salary}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> OT Rate </label>
+                    <div class="col-md-9">
+                        {{payroll.ot_rate}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Allowance </label>
+                    <div class="col-md-9">
+                        {{payroll.allowance}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Leave </label>
+                    <div class="col-md-9">
+                        {{payroll.leave}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Fine </label>
+                    <div class="col-md-9">
+                        {{payroll.fine}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Note </label>
+                    <div class="col-md-9">
+                        {{payroll.note}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Status </label>
+                    <div class="col-md-9">
+                        {{payroll.status}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Create Date </label>
+                    <div class="col-md-9">
+                        {{payroll.create_date}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Attachment </label>
+                    <div class="col-md-9">
+                        {{payroll.attachment}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </form>
+</div>
+{% endblock %}
